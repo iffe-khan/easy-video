@@ -1,5 +1,22 @@
 # easy-video
 
+== Steps ==
+As an admin, I should be able to bulk import videos from the youtube channel feed or user feed to a custom post type video
+  - Estimated Time: 1 hour
+  - Remaining Time: Completed
+It should also allow video categories to be saved as well and correctly attached to the imported video.
+  - Estimated Time: 10 minutes
+  - Remaining Time: Completed
+As an admin, I should be able to search and delete any individual video.
+  - Estimated Time: 10 minutes
+  - Remaining Time: Completed
+As an admin, I should be able to bulk delete videos.
+  - Estimated Time: 10 minutes
+  - Remaining Time: Completed
+Make the videos playable on frontend.
+  - Estimated Time: 1 hour
+  - Remaining Time: Completed
+
 == Installation ==
 
 1. In your admin panel, go to plugins and click the Add New button.
