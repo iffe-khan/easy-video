@@ -1,0 +1,10 @@
+/* Admin video upload */
+.all_videos a.video {
+    display: inline-block;
+    width: 200px;
+    margin: 5px;
+}
+
+.all_videos img {
+    width: 100%;
+}

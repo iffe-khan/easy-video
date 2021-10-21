@@ -1,0 +1,22 @@
+.display_videos a.video {
+    display: inline-block;
+    width: 248px;
+    margin: 5px;
+}
+
+.display_videos img {
+    width: 100%;
+}
+
+
+.all_videos {
+    background-color: #f7f7f7;
+    border: 1px solid #dddddd;
+    padding: 10px;
+    box-shadow: 5px 5px 10px #efefef;
+    margin-bottom: 20px;
+}
+
+.display_videos h3 {
+    margin-bottom: 0;
+}
