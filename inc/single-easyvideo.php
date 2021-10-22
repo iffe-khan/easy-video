@@ -17,16 +17,23 @@ while ( have_posts() ) :
             <h1 class="post-title">
                 <?php the_title(); ?>
             </h1>
+            <p>
+                <?php 
+                    $categories = get_the_category(get_the_ID());
+                    foreach( $categories as $cat ){
+                        echo '<label class="cat">'.$cat->name.'</label>';
+                    }
+                ?>
+            </p>
         </header>
 
         <div class="entry-content">
             <div class="display_videos">
                 <?php
-                    $channel_id = get_post_meta( get_the_ID(), 'channel_id', true );
-                    $easy_videos = new Easy_Videos();
-                    $html = $easy_videos->render_videos( $channel_id );
-                    echo $html;
+                    $video_url = get_post_meta( get_the_ID(), 'video_url', true );
+                    $video_id = substr( $video_url, -11 );
                 ?>
+                <iframe src="https://www.youtube.com/embed/<?php echo $video_id; ?>" style="width:100%; height:500px; border:0;"></iframe>
             </div>
         </div>
 

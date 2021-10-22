@@ -48,14 +48,33 @@ class Easy_Videos {
     
         $html = '<div class="all_videos">';
         $i = 0;
+
+        $args = array(
+            'hide_empty' => false,
+            'taxonomy' => 'category'
+        );
+        $categories = get_categories($args);
+
         foreach($my_videos as $video){
             if(isset($video)){
                 $html .= '
+                <div class="video">
                 <a class="video" href="https://www.youtube.com/watch?v='. $video['v_id'] .'" data-id="'.$i.'" target="_blank">
                     <img src="https://img.youtube.com/vi/'.$video['v_id'].'/hqdefault.jpg" /><br>
                     <span>'. $video['v_name'] .'</span>
                 </a>
-                <div class="preview_video-'.$video['v_id'].'-'.$i.' preview" style="display:none;"></div>
+                <div class="preview_video-'.$video['v_id'].'-'.$i.' preview" style="display:none;"></div><br>
+                <input type="text" name="video_title[]" value="'.$video['v_name'].'" />
+                <input type="hidden" name="video_url[]" value="https://www.youtube.com/watch?v='. $video['v_id'] .'" />
+                <select name="video_category[]">';
+                foreach( $categories as $category){
+                    $selected = '';
+                    if($category->term_id == 1){$selected='selected';}
+                    $html .= '<option '.$selected.' value="'.$category->term_id.'">'.$category->name.'</option>';
+                }
+                $html .= '
+                </select>
+                </div>
                 ';
             }
             $i++;

@@ -4,45 +4,55 @@
 **/
 
 function easy_videos_callback() {
-    global $wpdb; $wpdb->show_errors();
-    ob_start();
-    ?>
+	global $wpdb; $wpdb->show_errors();
+	ob_start();
+?>
 
-        <div class="display_videos">
-    <?php
+<div class="display_videos">
 
-            $args = array(  
-                'post_type' => 'easyvideo',
-                'post_status' => 'publish',
-                'posts_per_page' => -1, 
-                'orderby' => 'date', 
-                'order' => 'ASC', 
-            );
+	<?php
+	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	$args = array(  
+		'post_type' => 'easyvideo',
+		'post_status' => 'publish',
+		'orderby' => 'date', 
+		'order' => 'ASC', 
+		'posts_per_page' => 12,
+		'paged' => $paged
+	);
 
-            $loop = new WP_Query( $args ); 
-            while ( $loop->have_posts() ) : $loop->the_post();  
-                
-                echo '<h3><a href="'.get_the_permalink().'">'.get_the_title().'</a></h3>';
+	$loop = new WP_Query( $args ); 
+	while ( $loop->have_posts() ) : $loop->the_post();  
 
-                $channel_id = get_post_meta( get_the_ID(), 'channel_id', true );
-                
-                // create an object to access easy videos class
-                $easy_videos = new Easy_Videos();
-                // class the render_vides() function to fetch the videso from channel
-                $html = $easy_videos->render_videos( $channel_id );
-                // print the output
-                echo $html;
-            endwhile;
+    	$video_url = get_post_meta( get_the_ID(), 'video_url', true );
+    	$video_id = substr( $video_url, -11 );
+    	$feature_image = 'https://img.youtube.com/vi/'.$video_id.'/hqdefault.jpg';
 
-            wp_reset_postdata(); 
+	?>
+    	<a href="<?php echo get_the_permalink(); ?>" class="video">
+    		<img class="card-img-top" src="<?php echo $feature_image; ?>" alt="Card image" style="width: 100%;">
+    		<br>
+    		<span><?php the_title(); ?></span>
+    	</a>
 
-    ?>
-           
-        </div>
-            
+	<?php
 
-    <?php
+	endwhile;
 
-    return ob_get_clean();
+	?>
+
+	<div class="pagination">
+		<?php echo paginate_links( array( 'total' => $loop->max_num_pages ) ); ?>
+	</div>
+
+	<?php
+	   wp_reset_postdata(); 
+	?>         
+
+</div>
+
+<?php
+
+	return ob_get_clean();
 }
 add_shortcode( 'easy_video', 'easy_videos_callback' );

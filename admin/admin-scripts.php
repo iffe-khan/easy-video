@@ -34,3 +34,6 @@ function video_callback() {
 add_action( 'wp_ajax_nopriv_video_callback', 'video_callback' );
 add_action( 'wp_ajax_video_callback', 'video_callback' );
 
+require_once('import-videos.php');
+
+

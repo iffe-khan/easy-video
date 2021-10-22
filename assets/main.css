@@ -2,19 +2,23 @@
     display: inline-block;
     width: 248px;
     margin: 5px;
+
+    background-color: #f7f7f7;
+    border: 1px solid #dddddd;
+    padding: 10px;
+    box-shadow: 5px 5px 10px #efefef;
+    margin-bottom: 20px;
 }
 
 .display_videos img {
     width: 100%;
 }
 
-
-.all_videos {
-    background-color: #f7f7f7;
-    border: 1px solid #dddddd;
-    padding: 10px;
-    box-shadow: 5px 5px 10px #efefef;
-    margin-bottom: 20px;
+label.cat {
+    background: #dbdbdb;
+    padding: 5px 10px;
+    color: black;
+    border: 1px solid #cbcbcb;
 }
 
 .display_videos h3 {

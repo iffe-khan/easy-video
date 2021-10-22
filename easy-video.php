@@ -62,3 +62,5 @@ function override_single_template( $single_template ){
 
     return $single_template;
 }
+
+

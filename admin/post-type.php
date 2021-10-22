@@ -44,9 +44,9 @@ add_action( 'init', 'video_post_type_init' );
 // add meta box for videos url
 function add_video_metaboxes() {
     add_meta_box(
-		'channel_id',
-		'Channel ID',
-		'channel_id_function',
+		'video_url',
+		'Video URL',
+		'video_url_function',
 		'easyvideo',
 		'normal',
 		'default'
@@ -55,28 +55,18 @@ function add_video_metaboxes() {
 add_action( 'add_meta_boxes', 'add_video_metaboxes' );
 
 // channel id output
-function channel_id_function() {
+function video_url_function() {
     global $post;
-    $channelID = get_post_meta( $post->ID, 'channel_id', true );
+    $video_url = get_post_meta( $post->ID, 'video_url', true );
 ?>
-    <input type="text" name="channel_id" id="channel_id" placeholder="Enter Channel ID" value="<?php echo $channelID; ?>" style="max-width:100%; min-width:300px;"/>
-    <div id="loader"></div>
-    <div id="render_vidoes">
-        <?php   
-            if( $channelID ){
-                $easy_videos = new Easy_Videos();
-                $html = $easy_videos->render_videos( $channelID );
-                echo $html;
-            }
-        ?>
-    </div>
+    <input type="text" name="video_url" id="video_url" placeholder="Enter Video URL" value="<?php echo $video_url; ?>" style="max-width:100%; width:100%;"/>
 <?php
 }
 
 // save channel ID 
 function video_save_custom_meta( $post_id, $post ) {
     if( $post->post_type == 'easyvideo' ) {
-        update_post_meta( $post_id, 'channel_id', @$_POST['channel_id'] );
+        update_post_meta( $post_id, 'video_url', @$_POST['video_url'] );
     }
 }
 add_action( 'save_post', 'video_save_custom_meta', 1, 2 );

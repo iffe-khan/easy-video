@@ -1,10 +1,35 @@
 /* Admin video upload */
-.all_videos a.video {
+.all_videos .video {
     display: inline-block;
     width: 200px;
     margin: 5px;
 }
 
+.all_videos .video input,
+.all_videos .video select {
+    width: 100%;
+    margin-bottom: 5px;
+}
 .all_videos img {
     width: 100%;
+}
+
+input#channel_id {
+    min-width: 300px;
+    max-width: 100%;
+}
+
+.alert-success {
+    padding: 15px;
+    background: #00800026;
+    width: 400px;
+    border: 1px solid #00800073;
+    margin-bottom: 10px;
+}
+.alert.alert-danger {
+    padding: 10px;
+    background: #d636384a;
+    margin-bottom: 10px;
+    width: 300px;
+    border: 1px solid #ff000052;
 }
