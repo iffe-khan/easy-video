@@ -26,10 +26,10 @@ Make the videos playable on frontend.
 You should see a new admin menu in the admin panel called "Easy Video"
 
 == Use == 
-1. In order to add import new channel go to "Easy Video" Panel and click on "Add New"
-   - Provide Channel Title
-   - Select/Add Category from the right panel
-   - Below the Editor type the channel ID and it will automatically grab all the videos in that channel
+1. In order to add import new channel go to "Easy Video" Panel and click on "Import Video"
+   - Provide Channel ID
+   - It will automatically grab all the videos in that channel
+   - Select Category for each video and even can change title of the video
 2. Inside the "All Videos" page admin can see/add/delete/edit any Video
 3. Categories can be handled form the "Categories" page
 4. User [easy_video] shortcode to display it anywhere
