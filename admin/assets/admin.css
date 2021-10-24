@@ -3,6 +3,10 @@
     display: inline-block;
     width: 200px;
     margin: 5px;
+    transition: all .5s;
+}
+.all_videos {
+    transition: all .5s;
 }
 
 .all_videos .video input,
@@ -32,4 +36,13 @@ input#channel_id {
     margin-bottom: 10px;
     width: 300px;
     border: 1px solid #ff000052;
+}
+
+button#load-more {
+    display: block;
+    margin: 0 auto;
+    padding: 5px 15px;
+    width: 200px;
+    box-shadow: 5px 5px 10px #dfdfdf;
+    transition: all .5s;
 }

@@ -35,7 +35,9 @@ function import_video_callback() {
 	</div>
 
 	<form method="post" id="import-form">
+        <input type="hidden" id="next_page">
 		<div></div>
+        <div id="load-div"></div>
 		<button type="submit" name="import_videos" disabled class="button button-primary">Import</button>
 	</form>
 

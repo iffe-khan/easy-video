@@ -24,7 +24,7 @@ function video_callback() {
      // create an object to access easy videos class
      $easy_videos = new Easy_Videos();
      // class the render_vides() function to fetch the videso from channel
-     $html = $easy_videos->render_videos( $_POST['channel_id'] );
+     $html = $easy_videos->render_videos( $_POST['channel_id'], $_POST['next_page'] );
      // print the output
      echo $html;
 
